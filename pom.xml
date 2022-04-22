@@ -8,18 +8,36 @@
  
   <build>
     <plugins>
+
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.4</version>
-        <configuration>
-          <release>16</release>
-        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+            <execution>
+                <phase>package</phase>
+                <goals><goal>copy</goal></goals>
+                <configuration>
+                    <artifactItems>
+                        <artifactItem>
+                            <groupId>com.heroku</groupId>
+                            <artifactId>webapp-runner</artifactId>
+                            <version>9.0.52.1</version>
+                            <destFileName>webapp-runner.jar</destFileName>
+                        </artifactItem>
+                    </artifactItems>
+                </configuration>
+            </execution>
+        </executions>
       </plugin>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.2.3</version>
-      </plugin>
+
     </plugins>
   </build>
   
 </project>
+
+
+
+    <plugins>
+        ...
+        
+    </plugins>
